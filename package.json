@@ -1,7 +1,6 @@
 {
   "name": "react-native-template-jholdy-js",
-  "version": "1.0.2",
-  "description": "Template para projetos em React Native, com Estrutura de Pastas customizada, Estilos Globais, ESLint + Prettier + Babel Plugin Root Import, React Navigation, Redux, Redux Saga, Reactotron e Axios configurados.",
+  "version": "1.0.3",
   "keywords": [
     "react-native",
     "template",
@@ -14,11 +13,21 @@
     "redux",
     "redux-saga"
   ],
+  "description": "The base javascript template for Create React Native App by Jholdy.",
+  "main": "template.json",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jholdy/react-native-template-jholdy-js.git"
+    "url": "https://github.com/jholdy/react-native-template-jholdy-js"
   },
-  "homepage": "https://github.com/jholdy/react-native-template-jholdy-js#readme",
-  "author": "Jholdy Damasceno <jholdydamasceno@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "bugs": {
+    "url": "https://github.com/jholdy/react-native-template-jholdy-js/issues"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
 }
