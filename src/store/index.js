@@ -1,39 +1,21 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-import { persistStore, persistReducer } from 'redux-persist';
-import createEncryptor from 'redux-persist-transform-encrypt';
-import middlewares from './middlewares';
 
-import reducers from 'store/modules/rootReducers';
-import sagas from 'store/modules/rootSagas';
+import createStore from './createStore';
+import persistReducers from './persistReducers';
 
-const encryptor = createEncryptor({
-  secretKey: 'REACT_APP_KEY',
-});
-
-const persistConfig = {
-  key: 'root',
-  transforms: [encryptor],
-  storage: AsyncStorage,
-  whitelist: ['login'],
-  timeout: 0,
-};
+import rootReducer from './modules/rootReducers';
+import rootSaga from './modules/rootSagas';
 
 const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null;
 
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
-middlewares.push(sagaMiddleware);
+const middlewares = [sagaMiddleware];
 
-const composer = __DEV__
-  ? compose(applyMiddleware(...middlewares), console.tron.createEnhancer())
-  : compose(applyMiddleware(...middlewares));
-
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-const store = createStore(persistedReducer, composer);
+const store = createStore(persistReducers(rootReducer), middlewares);
 const persistor = persistStore(store);
 
-sagaMiddleware.run(sagas);
+sagaMiddleware.run(rootSaga);
 
-export default { store, persistor };
+export { store, persistor };

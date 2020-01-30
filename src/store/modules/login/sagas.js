@@ -1,6 +1,7 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
-import { Types, getLoginSuccess, getLoginFailure } from '../ducks/login';
+import { getLoginSuccess, getLoginFailure } from './actions';
 import { server } from 'services/api';
+import { Types } from './reducer';
 
 function* getLogin({ payload }) {
   try {

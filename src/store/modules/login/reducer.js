@@ -3,7 +3,7 @@ export const Types = {
   GET_SUCCESS: '@login/GET_SUCCESS',
   GET_FAILURE: '@login/GET_FAILURE',
 
-  GET_LOGOUT_REQUEST: '@login/GET_LOGOUT',
+  GET_LOGOUT: '@login/GET_LOGOUT',
 };
 
 const initialState = {

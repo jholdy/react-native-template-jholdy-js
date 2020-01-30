@@ -14,14 +14,14 @@ export function getLoginSuccess({ user, token }) {
   };
 }
 
-export function getLoginRequest(error) {
+export function getLoginFailure(error) {
   return {
     type: Types.GET_FAILURE,
     payload: { error },
   };
 }
 
-export function getLoginRequest() {
+export function getLogoutRequest() {
   return {
     type: Types.GET_LOGOUT,
   };

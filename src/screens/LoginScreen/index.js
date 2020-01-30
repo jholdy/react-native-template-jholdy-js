@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Image } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import logo from 'assets/logo.png';
 
-import Background from 'components/Background';
 import { getLoginRequest } from 'store/modules/login/actions';
 
 import { Container, SignLink, SignLinkText } from './styles';
@@ -18,14 +17,12 @@ export default function LoginScreen({ navigation }) {
   }
 
   return (
-    <Background>
-      <Container>
-        <Image source={logo} />
-        <LoginForm onSubmit={handleSubmit} />
-        <SignLink onPress={() => navigation.navigate('SignUp')}>
-          <SignLinkText>Criar conta gratuita</SignLinkText>
-        </SignLink>
-      </Container>
-    </Background>
+    <Container>
+      <Image source={logo} />
+      <LoginForm onSubmit={handleSubmit} />
+      <SignLink onPress={() => navigation.navigate('SignUp')}>
+        <SignLinkText>Criar conta gratuita</SignLinkText>
+      </SignLink>
+    </Container>
   );
 }

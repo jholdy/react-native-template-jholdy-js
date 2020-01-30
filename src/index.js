@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
+import PropTypes from 'prop-types';
 import 'config/ReactotronConfig';
 
 import { Provider } from 'react-redux';
 import { store, persistor } from './store';
 import AppNavigation from 'AppNavigation';
 
-const App = () => (
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <AppNavigation />
-    </PersistGate>
-  </Provider>
-);
+export default class App extends PureComponent {
+  static childContextTypes = {
+    store: PropTypes.shape({}),
+  };
 
-export default App;
+  getChildContext() {
+    return {
+      store,
+    };
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AppNavigation />
+        </PersistGate>
+      </Provider>
+    );
+  }
+}

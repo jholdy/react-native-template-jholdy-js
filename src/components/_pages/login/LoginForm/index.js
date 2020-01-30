@@ -23,24 +23,26 @@ const LoginForm = ({ onSubmit }) => {
       initialErrors={{ button: 'Start false' }}
       onSubmit={onSubmit}
       validateOnChange>
-      <Form>
-        <FastField
-          name="email"
-          component={FormInput}
-          icon="account"
-          label="Informe seu E-mail"
-        />
-        <FastField
-          name="password"
-          component={FormInput}
-          icon="onepassword"
-          label="Informe sua senha"
-        />
+      {({ submitForm, isValid }) => (
+        <Form>
+          <FastField
+            name="email"
+            component={FormInput}
+            icon="account"
+            label="Informe seu E-mail"
+          />
+          <FastField
+            name="password"
+            component={FormInput}
+            icon="onepassword"
+            label="Informe sua senha"
+          />
 
-        <SubmitButton loading={loading} onPress={submitForm}>
-          Acessar
-        </SubmitButton>
-      </Form>
+          <SubmitButton loading={loading} onPress={submitForm}>
+            Acessar
+          </SubmitButton>
+        </Form>
+      )}
     </Formik>
   );
 };

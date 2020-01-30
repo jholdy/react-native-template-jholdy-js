@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import InputCustom from 'components/_form/InputCustom';
+import Button from 'components/Button';
 
 export const Form = styled.View`
   align-self: stretch;
