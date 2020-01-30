@@ -25,9 +25,5 @@
   },
   "bugs": {
     "url": "https://github.com/jholdy/react-native-template-jholdy-js/issues"
-  },
-  "files": [
-    "template",
-    "template.json"
-  ]
+  }
 }
