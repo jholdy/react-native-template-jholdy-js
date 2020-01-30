@@ -24,5 +24,6 @@
   "react-native-vector-icons": "latest",
   "react-native-webview": "latest",
   "redux-persist": "latest",
+  "redux-persist-transform-encrypt": "latest",
   "yup": "latest"
 }
